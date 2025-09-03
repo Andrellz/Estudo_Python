@@ -23,4 +23,3 @@ print(f"o que vc me falou refere-se ao mês de número {meses_numeros[x]}")
 
 
 
-

@@ -1,0 +1,19 @@
+5. In detail, describe the following terminologies:
+a. Generative AI -  é um tópico do Machine Learning, estando dentro do deep learning, aqui o algoritmo não somente trazer a resposta para um problema dado, ele cria, como vemos com gemini, chatgpt, com grok e também ias de outras naturezas que criam, que trabalham também como agentes. Parte do processo para que este nível que temos hoje se tornasse realidade veio dos transformers, criação de uma equipe Google, que permitiu que a IA tivesse um relacionamento melhor com a linguagem e os sentidos abordados pelo conjunto de palavras e seus contextos.
+
+
+
+b. NLP - A sigla significa Natural language processing, que é mais um campo do machine learning que foca na interação da linguagem humana com a máquina, de modo a conseguir trazer ações frente a textos. De modo que é uma parte crucial em Machine Learning para processar linguagem.
+
+8. Provide descriptions of the essential skills for machine learning
+professionals.
+
+Não pode faltar boa comunicação, habilidade de resolver problemas, gestão de tempo, trabalho em equipe, e vontade de aprender. Fora isso tem as habilidades necessárias específicas de cada área, sendo que para Softwares Engeneers da área terão que ter a habilidade de gerar os códigos e estrutura de dados necessárias para as aplicações. Enquanto profissionais da estátistica e matemática devem ter habilidades em teste de hipoteses, modelagem de dados, uma base matemática bem consolidada.
+
+
+
+9. Explain any five real-world
+machine learning applications with at least two
+examples for each.
+
+Temos de acordo com esta pergunta, reconhecimento de voz e fala, como é feito pela Alexa da Amazon. Tem-se aplicações anti-trust para pegar fraudes que são utilizadas por grandes bancos nacionais e internacionais, como itau e bradesco. Tem-se aplicação em exames médicos, como vem sendo estudado pelo LIPAI. Há o reconhecimento facial, como é usado em celulares e tem-se o NLP, como são usados nas ia generativas como chatgpt e gemini.

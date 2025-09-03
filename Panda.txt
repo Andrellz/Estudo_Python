@@ -1,0 +1,128 @@
+vamos escrever aqui um resuminho então:
+
+aprendi o .head()  ---- top, e pode colocar um valor dentro dos parênteses
+o info()   --- bem bom tbm para analisar a integridade dos dados, não sei se esta a palavra
+temos o .shape para dar a quantidade linhas e colunas, bem legal também
+tem o .columns pra o que é esperado dele
+tem a .rename ai tem que colocar o nome antigo:atual
+se fizer as alterações lembre do inplace=True
+data['ESTADO'] para acessar somente aquela coluna
+temos o iloc que seleciona o bagulho pelo índice, a coluna é pelo nome mesmo, parece que aq é mais para a linhas mesmo
+na verdade para a linha é assim: data.iloc[[5, 1, 15, 10]], para a coluna poe o nome mesmo. Não põe o nome, usa-se o nome mesmo para a Coluna
+tudo errado, para usar o label tem usar o loc
+data.loc[:, 'ESTADO']
+
+tem como alterar o nome dos indexes, mas ai é só olhar rapidinho como faz
+.copy para fazer uma cópia, sempre bom usar desta forma 
+lembrar que o range cria uma lista de números também
+
+para tirar aquela coluna com os índices estranhos que ficaram, usa-se del data['Unnamed: 0']
+data.to_csv('./datasets/GasPricesinBrazil_2004-2019_preprocessado.csv', index=False) , pra salvar o trem como cria
+
+-----------Filtro------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.unique() para encontrar todos os nomes naquela coluna
+data.query('ESTADO =="SÃO PAULO"') interessante
+
+salvar o filtrado em uma nova variável
+
+use o .reset_index(drop = TRUE) para que o index do filtro fique na numeração certinha
+não esquece do inplace=TRUE
+
+se prepare para ver uma obra de arte: 
+
+selecao_1 = (data['ESTADO'] == 'SAO PAULO') | (data['ESTADO'] == 'RIO DE JANEIRO')
+selecao_2 = (data['PRODUTO'] == 'GASOLINA COMUM')
+selecao_3 = (data['PREÇO MÉDIO REVENDA'] > 2)
+
+selecao_final = selecao_1 & selecao_2 & selecao_3
+
+  _  _
+ / \/ \
+ \    /
+  \  /
+   \/
+
+
+um de or para não esquecermos jamais, sempre bom né
+
+selecao = (data['ANO'] == 2008) | (data['ANO'] == 2010) | (data['ANO'] == 2012)
+data[selecao]
+
+
+quer filtrar por meio de uma listinha, então vem comigo:
+é usar o .isin()
+vc faz a seleção por meio deste trem, vai ficar bom dms, tá doido
+a query se permite fazer o mesmo, vamos dar uma olhadinha: data.query('ANO in @lista_de_anos')
+
+---------------------------Preparação de Dados--------------------------------------------------------------------------------------------------------------------------------------------
+
+                  / / / / / / /
+                 / / / / / / /
+                / / / / / / /                       
+               / / / / / / /
+              / / / / / / /
+             / / / / / / /
+            / / / / / / /
+           / / / / / / /
+<===========================>
+           \ \ \ \ \ \ \
+            \ \ \ \ \ \ \
+             \ \ \ \ \ \ \
+              \ \ \ \ \ \ \
+               \ \ \ \ \ \ \
+                \ \ \ \ \ \ \
+                 \ \ \ \ \ \ \
+                  \ \ \ \ \ \ \
+
+meu amigo, se é data, deve ser em datatime, então quando ver uma data, faz assim ó: data_pre['DATA INICIAL'] = pd.to_datetime(data_pre['DATA INICIAL'])
+
+agora em relação ao numérico for atributo in ['MARGEM MÉDIA REVENDA',  ...  data_pre[atributo] = pd.to_numeric(data_pre[atributo], errors='coerce')
+
+agora vai aparecer uns Nam pra gente, ai temos que ir atras deles
+
+isso claro, por meio de um isnull()
+ai, quando vc encontrar os valores zuados, poe zero neles ou um valor interpolado, ai tem-se fillna(0)
+
+
+--------------------------------------------------Estatísticazinha Descritiva---------------------------------------------------------------------------------------------------------------
+tem um describe de lei com o .describe()
+para min tem o .min()
+para média tem-se o .mean()
+para desvio tem-se o .std()
+
+.value_counts() já vi bastante e passei raiva com ele, por causa das listas
+
+.to_frame() para converter a série em dataframe
+
+df['SOMA(A, B, C)'] = df.apply(nossa_soma, axis=1)
+1 é de ladinho, ai o aply aplicado uma função
+
+pode usar com label
+
+df.loc['Linha 5'] = df.apply(nossa_soma, axis=0)
+
+preguicinha, não quer criar uma função, ê safadinho, então vem comigo:
+vai de lamdda
+
+df['MEDIA(A, B, C)'] = df[['A', 'B', 'C']].apply(lambda series: series.mean(), axis=1)
+
+se vc quer mexer no elementos tem o aplymap
+
+df.applymap(lambda x: x ** 2)   ---- exemplinho
+
+
+----------------------------------------------------------Agrupamento-----------------------------------------------------------------------------------------------------------------------
+
+
+para formar os grupinhos grupos = data_final.groupby('REGIÃO')
+
+para pegar aquele quesito grupos.get_group('CENTRO OESTE')
+
+tem um bem legal para fazer um monte de coisa boa df.agg([sum, min]) 
+
+
+
+-----------------------------------------------------------------------------Ordenação------------------------------------------------------------------------------------------------------
+
+Voltar aqui com calma
