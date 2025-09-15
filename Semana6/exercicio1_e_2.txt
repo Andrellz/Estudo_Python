@@ -1,0 +1,19 @@
+1 - Com base no material apresentado no notebook, o que é uma função de ativação (como a ReLU)? Por que normalmente usamos entre as camadas?
+
+A função de ativação é uma como o nome diz, primeiramente, uma função, na qual, tem termos que funcionam como reguladores, pesos e a cada propagação estes pesos são atualizados até que se chegue na condição de parada.
+
+2 -  Explique o que cada uma das seguintes linhas de código faz e por que ela é necessária:
+
+2.1. model.train()
+Aqui é ativado o modo de treinamento, no qual o modelo tem suas configurações de modo a fazer os cálculos iniciais, que depois serão usado modo eval. Aqui são calculados os gradientes, são ligados todos os neurônios e cálculos de necessários na etapa posterior.
+
+
+2.2. optimizer.step()
+Atualização de parâmetros por meio de otimizador de modo a atualizar de forma eficiente por meio do processo matemático envolvido, que em muitos casos é o gradiente, podendo ser por gradiente e momento
+
+
+
+2.3. Qual a diferença fundamental entre os modos model.train() e model.eval()?
+
+O model.train() coloca o modelo em modo de treinamento, liga todos os neurónios e efetua cálculos que serão utilizados no model.eval(), no qual o modelo é colocado em modo de avalição. Neste não há cálculo de gradientes, é calculada acurácia, normalização de batch e dropout de alguns neurônios para evitar overfitting. 
+
